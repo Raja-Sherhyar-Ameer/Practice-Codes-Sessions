@@ -31,19 +31,23 @@ int main(){
     cout<<endl;
     int k=0;
     j=0;
-    for(int i=0;i<n*n;i++){
-        if(i!=n && j!=n){
-            cout<<matrix[i][j++]<<" ";
+    while(true){
+
+        if(k!=n && j!=n){
+            cout<<matrix[k][j++]<<" ";
         }
-        else if(i!=n && j==n){
-            cout<<matrix[i++][j]<<" ";
+        else if(k!=n && j==n){
+            cout<<matrix[++k][j-1]<<" ";
         }
-        else if(i==n && j==n){
-            cout<<matrix[i][j--]<<" ";
+        else if(k==n && j==n){
+            cout<<matrix[k-1][--j]<<" ";
         }
-        else if(i!=n && j==0){
-            cout<<matrix[i--][j]<<" ";
+        else if(k!=n && j==0){
+            cout<<matrix[--k][j]<<" ";
         }
+
+        if(k==1 && j==0)
+        return 0;
     }
 
 
