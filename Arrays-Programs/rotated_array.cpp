@@ -1,41 +1,46 @@
 #include<iostream>
 using namespace std;
+/* Problem:: To Rotate the matrix clockwise 90 degree , with some restrictions are
+ a. Donot use extra array  
+ b. Changes in array only be done by pointers
+*/
+
 int main(){
     int n;
     cout<<"Enter the size of square matrix: ";
     cin>>n;
-    int matrix[n][n]={
-        {1,2,3},
-        {4,5,6},
-        {7,8,9}};
+    int x=n-1;
+    int matrix[n][n]={0};
     int* ptr[n];
     
     // inputting the matrix
-    // for(int i=0;i<n;i++){
-    //     for(int j=0;j<n;j++){    00-02:: 01-12 :: 02-22
-    //         cin>>matrix[i][j];    10-01:: 11-11 :: 12-21
-    //     }                         20-00:: 21-01 :: 22-02
-    // }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){    
+            cin>>matrix[i][j];    
+        }                       
+    }
 
     // element accessing through pointer
     for(int i=0;i<n;i++){
         ptr[i]=matrix[i];
     }
 
-    int x=n-1;
-    // for(int i=0;i<n;i++){
-    //     for(int j=n-1-i;j>=0;j--){
-    //         int temp = *(*(ptr+i)+j);
-    //         *(*(ptr+i)+j) = *(*(ptr+j)+x);
-    //         *(*(ptr+j)+x) = temp;
+    // rotating the matrix by 90 degree clockwise
+    for(int i=0;i<n/2;i++){
+        for(int j=i;j<n-i-1;j++){
+            int temp=*(*(ptr+i)+j); 
+            *(*(ptr+i)+j)=*(*(ptr+x-j)+i);         // Error in code fixed by GPT by replacing *(*(ptr+x-i)+j) =*(*(ptr+x-j)+i)
+            *(*(ptr+x-j)+i)=*(*(ptr+x-i)+x-j);
+            *(*(ptr+x-i)+x-j)=*(*(ptr+j)+x-i);
+            *(*(ptr+j)+x-i)=temp;
+        }
+    }
 
-    //     }
-    //     x--;
-    // }
-
+    cout<<"The rotated matrix is: "<<endl;
+    // printing the rotated matrix
     for(int i=0;i<n;i++){
-        for(int j=n-1;j>=0;j--){
-            cout<<matrix[j][i]<<" ";
+        for(int j=0;j<n;j++){
+            cout<<matrix[i][j]<<" ";
         }
         cout<<endl;
     }
