@@ -23,19 +23,19 @@ int main(){
     }
 
     int x=n-1;
-    for(int i=0;i<n;i++){
-        for(int j=n-1-i;j>=0;j--){
-            int temp = *(*(ptr+i)+j);
-            *(*(ptr+i)+j) = *(*(ptr+j)+x);
-            *(*(ptr+j)+x) = temp;
+    // for(int i=0;i<n;i++){
+    //     for(int j=n-1-i;j>=0;j--){
+    //         int temp = *(*(ptr+i)+j);
+    //         *(*(ptr+i)+j) = *(*(ptr+j)+x);
+    //         *(*(ptr+j)+x) = temp;
 
-        }
-        x--;
-    }
+    //     }
+    //     x--;
+    // }
 
     for(int i=0;i<n;i++){
-        for(int j=0;j<=n-1;j++){
-            cout<<matrix[i][j]<<" ";
+        for(int j=n-1;j>=0;j--){
+            cout<<matrix[j][i]<<" ";
         }
         cout<<endl;
     }
