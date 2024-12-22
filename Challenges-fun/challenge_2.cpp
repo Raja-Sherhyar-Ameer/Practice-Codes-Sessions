@@ -1,5 +1,12 @@
 #include<iostream>
 using namespace std;
+
+/* Problem:: Printing of elements in different manner as:
+   a. Diagonal Element
+   b. Anti Diagonal Element
+   c. Bordered Element in clockwise starting from 00 index
+*/
+
 int main(){
 
     int matrix[100][100];
