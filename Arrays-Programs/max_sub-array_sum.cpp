@@ -3,6 +3,7 @@ using namespace std;
 
 int max_sum_1(int arr[], int size);
 int max_sum_2(int arr[], int size);
+int max_sum_3(int arr[], int size);
 
 int main(){
     int arr[100];
@@ -17,7 +18,9 @@ int main(){
 
     cout<<"The maximum sub array sum through 1st approach is " <<max_sum_1(arr,n)<<endl;
     cout<<"The maximum sub array sum through 2nd approach is " <<max_sum_2(arr,n)<<endl;
+    cout<<"The maximum sub array sum through 3rd approach is " <<max_sum_3(arr,n)<<endl;
 
+    return 0;
 }
 
 int max_sum_1(int arr[], int size){
@@ -58,4 +61,22 @@ int max_sum_2(int arr[], int size){
     }
 
     return temp;
+}
+int max_sum_2(int arr[], int size){
+    int sum=0,max_sum=INT_MIN;
+
+    // traversing through all element
+    for(int i=0;i<size;i++){
+        sum+=arr[i];
+
+        if(sum>max_sum){
+            max_sum=sum;
+        }
+        
+        if(sum<0){
+            sum=0;
+        }
+    }
+
+    return max_sum;
 }
