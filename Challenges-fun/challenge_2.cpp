@@ -14,6 +14,7 @@ int main(){
         }
     }
 
+    // printing the primary diagonal element
     cout<<"Diagonal elements:: ";
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
@@ -24,32 +25,39 @@ int main(){
     }
 
     int j=n-1;
+    // printing the secondary diagonal element
     cout<<"\nAnti-diagonal elements:: ";
     for(int i=0;i<n;i++){
         cout<<matrix[i][j--]<<" ";
     }
     cout<<endl;
-    int k=0;
-    j=0;
-    while(true){
 
-        if(k!=n && j!=n){
-            cout<<matrix[k][j++]<<" ";
+    // printing the border element in clockwise order
+    cout<<"Bordered linear clockwise printing is as:: ";  
+    int counter=0; j=0;
+    int i=0;
+    while(counter<n*n){
+
+        if(i==0 && j!=n-1 && j+1<n){              // move right
+            cout<<matrix[i][j++]<<" ";
         }
-        else if(k!=n && j==n){
-            cout<<matrix[++k][j-1]<<" ";
+        else if(j==n-1 && i+1<n){                // move down
+            cout<<matrix[i++][j]<<" ";
         }
-        else if(k==n && j==n){
-            cout<<matrix[k-1][--j]<<" ";
+        else if(i==n-1 && j-1>=0){               // move left
+            cout<<matrix[i][j--]<<" ";
         }
-        else if(k!=n && j==0){
-            cout<<matrix[--k][j]<<" ";
+        else if(j!=n-1 && i-1>=0){              // move up
+            cout<<matrix[i--][j]<<" ";
         }
 
-        if(k==1 && j==0)
-        return 0;
+        if(i==0 && j==0){
+            break;
+        }
+        else{
+            counter++;
+        }   
     }
-
 
     return 0;
 }
