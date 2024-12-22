@@ -1,5 +1,9 @@
 #include<iostream>
 using namespace std;
+/*  Problem:: Find the maximum sub-array sum through kadane's algorithms
+    I tried step by step how can I approach this algo and these functionds shows
+    how I reach that algorithm.
+*/
 
 int max_sum_1(int arr[], int size);
 int max_sum_2(int arr[], int size);
