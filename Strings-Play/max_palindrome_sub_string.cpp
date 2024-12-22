@@ -1,10 +1,19 @@
 #include<iostream>
 using namespace std;
+
+/* Problem:: Find max palindrome sub string in string */
+
 int main(){
+
     string word;
     cout<<"Enter the word: ";
     getline(cin,word);
     
+    if(word.empty()){
+        cout<<"No string's palindrome found due to empty string"<<endl;
+        return 0;
+    }
+
     bool isPalindrome=true;
     string temp="", palindrome="";
     int c_length=0,p_length=0;
