@@ -2,6 +2,7 @@
 using namespace std;
 
 int max_sum_1(int arr[], int size);
+int max_sum_2(int arr[], int size);
 
 int main(){
     int arr[100];
@@ -15,6 +16,7 @@ int main(){
     }
 
     cout<<"The maximum sub array sum through 1st approach is " <<max_sum_1(arr,n)<<endl;
+    cout<<"The maximum sub array sum through 2nd approach is " <<max_sum_2(arr,n)<<endl;
 
 }
 
@@ -37,4 +39,23 @@ int max_sum_1(int arr[], int size){
     }
 
     return max_sum;
+}
+
+int max_sum_2(int arr[], int size){
+    int sum=0,temp=INT_MIN;
+    
+    // traversing through all elements
+    for(int i=0;i<size;i++){
+
+        // all possible subset of element by element and their sum
+        for(int j=i;j<size;j++){
+            sum+=arr[j];
+            if(sum>temp){
+                temp=sum;
+            }
+        }
+        sum=0;
+    }
+
+    return temp;
 }
