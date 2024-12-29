@@ -66,7 +66,7 @@ int max_sum_2(int arr[], int size){
 
     return temp;
 }
-int max_sum_2(int arr[], int size){
+int max_sum_3(int arr[], int size){
     int sum=0,max_sum=INT_MIN;
 
     // traversing through all element
