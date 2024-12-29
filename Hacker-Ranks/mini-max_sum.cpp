@@ -1,5 +1,11 @@
 #include<iostream>
 using namespace std;
+
+/* Problem:: Given five positive integers, find the minimum and
+   maximum sums that can be obtained by summing exactly four of
+   the five integers. Then, print the respective minimum sum and maximum sum
+*/
+
 int main(){
     const int size=5;
     int arr[size];
