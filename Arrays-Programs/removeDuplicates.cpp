@@ -27,6 +27,21 @@ int main(){
         }
     }
 
-   
+    int x=1;  // counter for tracking unique elements
+    for(int i=0;i<length;i++){
+
+        if(i!=0 && ((arr[i]^arr[i-1])!=0) ){
+            arr[x++]=arr[i];
+        }
+        
+    }
+    
+    cout<<"The unique elements are "<<x<<endl;
+
+    for(int i=0;i<x;i++){
+        cout<<arr[i]<<" ";
+    }
+
+
     return 0;
 }
