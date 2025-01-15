@@ -1,6 +1,16 @@
 #include<iostream>
 using namespace std;
 
+/* Problem:: Your task is to print the unique elements in the array and
+   remove the duplicates from it.
+
+    Input  :: [1, 3, 5, 9, 8, 3, 1]
+    Output :: [1, 3, 5, 8, 9]
+
+   Constraint::  Removing logic must be executed only single loop
+   It should be generic and work for both sorted and non-sorted array
+*/
+
 int main(){
 
     // inputting the array and its element
@@ -33,11 +43,12 @@ int main(){
         if(i!=0 && ((arr[i]^arr[i-1])!=0) ){
             arr[x++]=arr[i];
         }
-        
+
     }
     
     cout<<"The unique elements are "<<x<<endl;
 
+    // printing the unique elements
     for(int i=0;i<x;i++){
         cout<<arr[i]<<" ";
     }
