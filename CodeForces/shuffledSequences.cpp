@@ -23,6 +23,7 @@ Note: For more details about the problem, you can search for CodeForces 1144C
 
 */
 
+// Sorting the array based on pivot point
 int partition(int* arr, int s, int e){
     int idx=s;
     for(int j=s;j<e;j++){
@@ -36,7 +37,6 @@ int partition(int* arr, int s, int e){
     
     return idx;
 }
-
 void Quicksort(int* arr,int st, int end){
     if(st<end){
         int pivotIndex = partition(arr, st, end);
@@ -46,6 +46,7 @@ void Quicksort(int* arr,int st, int end){
     }
     
 }
+
 int main() {
     int size;
     //cout<<"Enter the size: ";
@@ -57,10 +58,14 @@ int main() {
         cin>>arr[i];
     }
     
+    // sorting the array
     Quicksort(arr, 0, size-1);
     int left=0,right=1,freq=1,max=INT_MIN,des_size=0;
+
+    // Finding the duplicate as well as strictly increasing as well as decresing sequence
     while(right<size){
         
+        // Edge Cases handling
         if(max>=3){
             cout<<"NO"<<endl;
             delete [] dp;
@@ -70,10 +75,12 @@ int main() {
             return 0;
         }
         
+        // Checking for duplicates
         if(arr[left]==arr[right]){
             freq++;
-            
             max=max>freq?max:freq;
+            
+            // Separating the both type of sequences
             if(freq==2){
                 dp[left]=true;
                 des_size++;
@@ -86,6 +93,7 @@ int main() {
         left++,right++;
     }
     
+    // Printing of Monotonically Increasing Sequence
     cout<<"Yes\n"<<size-des_size<<endl;
     for(int i=0;i<size;i++){
         if(dp[i])
@@ -93,6 +101,7 @@ int main() {
         cout<<arr[i]<<" ";
     }
     
+    // Printing of Monotonically Decreasing Sequence
     cout<<"\n"<<des_size<<endl;
     for(int i=size-1;i>=0;i--){
         if(!dp[i])
@@ -100,8 +109,7 @@ int main() {
         cout<<arr[i]<<" ";
     }
     
-    
-    
+    // Avoiding Memory leaks 
     delete [] dp;
     delete [] arr;
     dp=nullptr;
