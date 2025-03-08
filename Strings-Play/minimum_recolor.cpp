@@ -1,6 +1,19 @@
 #include<iostream>
 using namespace std;
 
+/*
+
+Problem: This is leetCode problem number 2379 in which string s given a representation of colouring 
+block such that 'W' means White and 'B' means Black. However, your task is to find minimum operation
+that you will be performing on the string to make it equal to k consecutive Black blocks. 
+
+Input: 
+s = "WBBWWBBWBW", k = 7
+Output:
+The minimum operations are 3
+
+*/
+
 int main(){
 
     // Inputting the parameter
