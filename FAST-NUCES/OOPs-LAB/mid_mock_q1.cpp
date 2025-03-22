@@ -3,6 +3,13 @@ using namespace std;
 
 // Raja Shehryar Ameer    24I - 0544
 
+
+/*
+
+Problem:: You have given a 3x3 A matrix and 3x1 B matrix and your job is to solve the
+system of equations through Cramer Rule
+
+*/
 int determinant_2D_finder(int**,int);
 void coloumnSwap(int**,int**,int);
 
